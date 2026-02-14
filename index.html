@@ -6,7 +6,7 @@
   <title>14 февраля — Только тебе, мой главный человек ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:wght@600;900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:wght@600;900&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -60,7 +60,6 @@
       z-index: 3;
     }
 
-    /* Место для картинки */
     .photo-container {
       width: 260px;
       height: 260px;
@@ -85,7 +84,7 @@
       text-shadow: 0 0 30px rgba(255, 179, 217, 0.8);
     }
 
-    /* ВЕРНУЛИ СТАРЫЙ ЭФФЕКТ */
+    /* Блок сразу виден */
     .message-box {
       max-width: 90%;
       font-size: clamp(1.2rem, 4vw, 1.6rem);
@@ -98,22 +97,6 @@
       border: 2px solid rgba(255, 77, 148, 0.5);
       backdrop-filter: blur(15px);
       box-shadow: 0 0 40px rgba(255, 77, 148, 0.4);
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 1.5s ease-out;
-    }
-
-    .message-box.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .typed-text {
-      display: inline-block;
-      white-space: pre-wrap;
-      overflow: hidden;
-      border-right: 3px solid #ff99cc;
-      animation: blinkCursor 0.8s step-end infinite;
     }
 
     .name {
@@ -144,11 +127,6 @@
     @keyframes heartbeat {
       0%, 100% { transform: translate(-50%, -50%) scale(1); }
       50% { transform: translate(-50%, -50%) scale(1.15); }
-    }
-
-    @keyframes blinkCursor {
-      0%, 100% { border-color: transparent; }
-      50% { border-color: #ff99cc; }
     }
 
     .heart-float {
@@ -185,8 +163,10 @@
 
     <div class="subtitle">Пиздюшонку</div>
 
-    <div class="message-box" id="message">
-      <span class="typed-text"></span>
+    <!-- ТЕКСТ СРАЗУ ВИДЕН -->
+    <div class="message-box">
+      Love is… сесть херачить валентинку для тебя утром 14 февраля, 
+      с растрёпанными волосами и сонными глазами 💌
     </div>
 
     <div class="name">Твоя Лялька 🫂</div>
@@ -208,22 +188,6 @@
     }
 
     setInterval(createHeart, 350);
-
-    const messageEl = document.getElementById('message').querySelector('.typed-text');
-    const fullText = "Love is… сесть херачить валентинку для тебя утром 14 февраля, с растрёпанными волосами и сонными глазами";
-
-    let i = 0;
-    function typeWriter() {
-      if (i < fullText.length) {
-        messageEl.innerHTML += fullText.charAt(i);
-        i++;
-        setTimeout(typeWriter, 60);
-      } else {
-        document.getElementById('message').classList.add('visible');
-      }
-    }
-
-    setTimeout(typeWriter, 1500);
 
     document.getElementById('surpriseBtn').addEventListener('click', () => {
       const surprise = document.createElement('div');
